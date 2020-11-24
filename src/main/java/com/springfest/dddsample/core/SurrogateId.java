@@ -15,7 +15,7 @@ import java.util.UUID;
  */
 @Value
 @NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)
-@RequiredArgsConstructor(staticName = "of")
+@RequiredArgsConstructor(staticName = "of") // factory method を生成
 public class SurrogateId implements Identifier, Serializable {
 
     @Type(type = "uuid-char")

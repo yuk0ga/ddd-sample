@@ -19,9 +19,9 @@ public class Order implements AggregateRoot<Order, SurrogateId> {
 
     private final SurrogateId id = SurrogateId.create();
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true) // 受注に紐づく明細が更新された時、以前の明細は削除する
     @OrderColumn
-    @Column(unique = true)
+    @Column(unique = true) // 受注の中の明細は一意であるから(同じ項目であれば束ねられる)
     private final List<OrderLine> lines = new ArrayList<>();
 
 }
