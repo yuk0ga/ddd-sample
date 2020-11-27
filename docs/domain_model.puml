@@ -1,0 +1,45 @@
+@startuml
+
+package Order <<Cloud>> {
+	class Order
+}
+class Product << (A,#f6d53d) AggregateRoot >> {
+}
+
+class Order << (A,#f6d53d) AggregateRoot >> {
+    lines: List<OrderLine>
+}
+
+class OrderLine << (E,#f6d53d) Entity >> {
+	id: UUID
+	name: String
+	quantity: int
+	price: MonetaryAmount
+}
+
+class Inventory << (A,#f6d53d) AggregateRoot >> {
+	id: SurrogateId
+	name: String
+	company: string
+}
+
+class OrderProjection << (R,#daf89f) ReadModel >> {
+}
+
+'class Award << (V,#f6d53d) ValueObject >> {
+'	generalName: string
+'	uniqueName: string
+'}
+
+'Inventory "n" <-d- "1" Order : association
+'
+'Product "1" -u-> "n" Vote : association
+'Product "1" -u-> "n" Decision : association
+'Product "1" -u-> "n" Comment : association
+'
+'Inventory "1" *-- "n" Vote : aggregation
+'Inventory "1" *-- "1" Decision : aggregation
+'Inventory "1" --> "n" Comment : association
+'Inventory "1" --> "n" Attachment : association
+Order *-- OrderLine : aggregation
+@enduml
