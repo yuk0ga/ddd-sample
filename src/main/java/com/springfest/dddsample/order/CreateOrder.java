@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 /**
- * command にあたる
+ * command(Domain Event が起こる要因) にあたる
  * @author KIYOTA, Takeshi
  */
 @Getter

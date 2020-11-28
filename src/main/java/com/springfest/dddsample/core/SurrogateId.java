@@ -14,7 +14,7 @@ import java.util.UUID;
  * @author KIYOTA, Takeshi
  */
 @Value
-@NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)
+@NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)  // final field を 0 / null / false に初期化
 @RequiredArgsConstructor(staticName = "of") // factory method を生成
 public class SurrogateId implements Identifier, Serializable {
 

@@ -1,0 +1,24 @@
+{
+  "analysis": {
+    "analyzer": {
+      "japanese": {
+        "type": "custom",
+        "tokenizer": "kuromoji_tokenizer",
+        "char_filter": [
+          "icu_normalizer"
+        ],
+        "filter": [
+          "cas_synonyms",
+          "kuromoji_readingform",
+          "kuromoji_stemmer"
+        ]
+      }
+    },
+    "filter": {
+      "cas_synonyms": {
+        "type": "synonym",
+        "synonyms_path": "synonyms.txt"
+      }
+    }
+  }
+}
